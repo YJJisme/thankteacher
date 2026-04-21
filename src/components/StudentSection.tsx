@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { User, MessageSquare, Heart, Info, DollarSign, ArrowLeft, CheckCircle2, ChevronRight, Lock, Key, ShieldCheck } from "lucide-react";
 import { DEFAULT_CONFIG } from "../constants";
@@ -27,11 +27,12 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
   const selectedStudent = students.find(s => s.id === selectedStudentId);
 
   // Stats calculation
-  const totalPaidCount = students.filter(s => {
+  const totalPaidCount = useMemo(() => students.filter(s => {
     const target = s.isAttending ? DEFAULT_CONFIG.attendingFee : DEFAULT_CONFIG.absentFee;
     return s.paidAmount >= target;
-  }).length;
-  const paymentPercentage = students.length > 0 ? Math.round((totalPaidCount / students.length) * 100) : 0;
+  }).length, [students]);
+  
+  const paymentPercentage = useMemo(() => students.length > 0 ? Math.round((totalPaidCount / students.length) * 100) : 0, [students.length, totalPaidCount]);
 
   // Handle student selection
   const handleSelect = (id: string) => {

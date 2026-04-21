@@ -22,6 +22,11 @@ export default function App() {
 
   console.log("App Rendering - View:", view, "Ready:", isFirebaseReady);
 
+  // Auto-scroll to top on view change for better UX
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [view]);
+
   // 1. One-time Setup & Seeding Logic
   useEffect(() => {
     const performInitialSetup = async () => {
@@ -50,23 +55,19 @@ export default function App() {
       ];
 
       try {
-        if (localStorage.getItem("gradgroup_stable_v2_final")) return;
-
         const querySnapshot = await getDocs(collection(db, "students"));
         
-        // 1. Wipe EVERYTHING to start fresh
-        console.log("Cleaning database for fresh start...");
-        const deletePromises = querySnapshot.docs.map(d => deleteDoc(doc(db, "students", d.id)));
-        await Promise.all(deletePromises);
+        // ONLY seed if the database is EMPTY.
+        // This prevents wiping data when new users visit.
+        if (!querySnapshot.empty) {
+          console.log("Database already seeded. Skipping initialization.");
+          return;
+        }
 
-        // 2. Set the flag IMMEDIATELY before seeding to prevent multiple runs
-        localStorage.setItem("gradgroup_stable_v2_final", "true");
-
-        // 3. Seed final list with FIXED IDs to prevent duplicates
-        console.log("Seeding canonical list...");
+        console.log("Database is empty. Starting canonical seeding...");
+        // Seed final list with FIXED IDs to prevent duplicates
         for (let i = 0; i < FINAL_ORDER_LIST.length; i++) {
           const s = FINAL_ORDER_LIST[i];
-          // Use name as part of the ID or just a numerical ID to ensure uniqueness during seed
           const studentId = `student_order_${i}`; 
           await setDoc(doc(db, "students", studentId), {
             ...s,
@@ -81,7 +82,6 @@ export default function App() {
         console.log("Seeding complete.");
       } catch (err) {
         console.error("Setup error:", err);
-        localStorage.removeItem("gradgroup_stable_v2_final"); // Reset flag on error
       }
     };
 

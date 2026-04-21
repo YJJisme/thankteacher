@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { motion } from "motion/react";
 import { 
   Users, DollarSign, UserCheck, UserMinus, Plus, Trash2, 
@@ -37,7 +37,7 @@ export default function AdminPanel({ students, onUpdateStudent, onAddStudent, on
     }
   };
 
-  const totals = {
+  const totals = useMemo(() => ({
     attending: students.filter(s => s.isAttending).length,
     absent: students.filter(s => !s.isAttending).length,
     paid: students.filter(s => {
@@ -46,14 +46,14 @@ export default function AdminPanel({ students, onUpdateStudent, onAddStudent, on
     }).length,
     totalExpected: students.reduce((acc, s) => acc + (s.isAttending ? DEFAULT_CONFIG.attendingFee : DEFAULT_CONFIG.absentFee), 0),
     totalCollected: students.reduce((acc, s) => acc + s.paidAmount, 0),
-  };
+  }), [students]);
 
-  const chartData = [
+  const chartData = useMemo(() => [
     { name: '已繳費', value: totals.paid, color: '#10b981' },
     { name: '未結清', value: students.length - totals.paid, color: '#f59e0b' },
-  ];
+  ], [students.length, totals.paid]);
 
-  const filteredStudents = students.filter(s => {
+  const filteredStudents = useMemo(() => students.filter(s => {
     const matchesSearch = s.name.toLowerCase().includes(search.toLowerCase());
     if (filter === 'unpaid') {
       const target = s.isAttending ? DEFAULT_CONFIG.attendingFee : DEFAULT_CONFIG.absentFee;
@@ -62,7 +62,7 @@ export default function AdminPanel({ students, onUpdateStudent, onAddStudent, on
     if (filter === 'attending') return matchesSearch && s.isAttending;
     if (filter === 'absent') return matchesSearch && !s.isAttending;
     return matchesSearch;
-  });
+  }), [students, search, filter]);
 
   if (!isAuthenticated) {
     return (
