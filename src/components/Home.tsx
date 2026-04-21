@@ -54,7 +54,7 @@ export default function Home({ onEnterStudent, onEnterTeacher, onEnterAdmin }: H
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
       {/* Hero Section */}
-      <section className="relative h-[65vh] flex items-center justify-center overflow-hidden bg-indigo-900 text-white">
+      <section className="relative min-h-[75vh] py-20 flex items-center justify-center overflow-hidden bg-indigo-900 text-white">
         <div className="absolute inset-0 opacity-20 bg-[url('https://picsum.photos/seed/graduation/1920/1080')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-indigo-950 via-indigo-950/40 to-transparent" />
         
@@ -64,16 +64,16 @@ export default function Home({ onEnterStudent, onEnterTeacher, onEnterAdmin }: H
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 text-xs font-bold tracking-widest uppercase mb-6">
+            <span className="inline-block px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 text-[10px] font-bold tracking-widest uppercase mb-6">
               Class of 2026 Graduation
             </span>
-            <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-none">
-              畢業謝師宴 <br/><span className="text-indigo-400">GradGroup</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-10 leading-tight">
+              畢業謝師宴 <br className="hidden md:block"/><span className="text-indigo-400">GradGroup</span>
             </h1>
 
             {/* Countdown Display */}
             {timeLeft && (
-              <div className="flex justify-center gap-3 md:gap-6 mt-10">
+              <div className="flex justify-center gap-3 md:gap-8 mt-12">
                 {[
                   { label: "DAYS", val: timeLeft.d },
                   { label: "HRS", val: timeLeft.h },
