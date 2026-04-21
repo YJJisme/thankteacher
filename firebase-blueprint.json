@@ -1,0 +1,26 @@
+{
+  "entities": {
+    "Student": {
+      "title": "Student",
+      "description": "畢業生資料與感言",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "isAttending": { "type": "boolean" },
+        "paidAmount": { "type": "number" },
+        "oneLiner": { "type": "string" },
+        "messageToTeacher": { "type": "string" },
+        "isAnonymous": { "type": "boolean" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "name", "isAttending", "paidAmount"]
+    }
+  },
+  "firestore": {
+    "students/{studentId}": {
+      "schema": "Student",
+      "description": "存儲每位同學的出席、繳費狀態與留言"
+    }
+  }
+}

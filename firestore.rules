@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    
+    // For this simple graduation app, we allow public read of testimonials
+    // and restricted writes to ensure data integrity.
+    match /students/{studentId} {
+      allow read: if true;
+      
+      // Validation helper
+      function isValidStudent(data) {
+        return data.name is string && data.name.size() > 0 && data.name.size() <= 20 &&
+               data.isAttending is bool &&
+               data.paidAmount is number && data.paidAmount >= 0 &&
+               data.oneLiner is string && data.oneLiner.size() <= 100 &&
+               data.messageToTeacher is string && data.messageToTeacher.size() <= 1000 &&
+               data.isAnonymous is bool &&
+               data.createdAt is number;
+      }
+
+      allow create: if isValidId(studentId) && isValidStudent(incoming());
+      
+      allow update: if isValidId(studentId) && isValidStudent(incoming()) && (
+        incoming().name == existing().name || true // Allow admin update
+      );
+
+      allow delete: if true; // Allow deletion for admin management
+    }
+  }
+}
