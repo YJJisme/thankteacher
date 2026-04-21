@@ -20,6 +20,8 @@ export default function App() {
   const [students, setStudents] = useState<Student[]>([]);
   const [isFirebaseReady, setIsFirebaseReady] = useState(false);
 
+  console.log("App Rendering - View:", view, "Ready:", isFirebaseReady);
+
   // 1. One-time Setup & Seeding Logic
   useEffect(() => {
     const performInitialSetup = async () => {
