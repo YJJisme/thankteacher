@@ -18,6 +18,7 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
   const [passwordError, setPasswordError] = useState("");
 
   const [showFormula, setShowFormula] = useState(false);
+  const [showTeachers, setShowTeachers] = useState(false);
   const [oneLiner, setOneLiner] = useState("");
   const [message, setMessage] = useState("");
   const [isAnonymous, setIsAnonymous] = useState(false);
@@ -210,7 +211,7 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
                 <div>
                   <p className="text-xs font-bold text-amber-900">繳費溫馨提示</p>
                   <p className="text-[11px] text-amber-700 leading-relaxed mt-0.5">
-                    請盡量自備 <span className="font-bold underline">剛好的金額</span> 或 <span className="font-bold underline">百元鈔/零錢</span>，減少找零流程，加快對帳速度喔！
+                    歡迎 <span className="font-bold text-amber-900">隨時或預約時間</span> 交錢給班代，請盡量自備剛好金額，並務必於 <span className="font-bold underline text-rose-600">活動當天之前</span> 完成對帳喔！ 🚀
                   </p>
                 </div>
               </div>
@@ -319,7 +320,7 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
                   <Info size={12} /> 精算細節
                 </button>
                 <p className="text-[10px] font-bold text-amber-600 flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-full">
-                  💡 建議自備剛好金額，不找零
+                  💡 隨時/預約交給班代，請於活動前收齊
                 </p>
               </div>
             </div>
@@ -357,9 +358,41 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
                     <p className="font-bold text-slate-900 mb-2">📊 每位學生分攤詳解：</p>
                     <div className="space-y-3 bg-white p-4 rounded-2xl border border-slate-100 text-xs">
                       <div className="pb-2 border-b border-slate-100">
-                        <p className="font-bold text-indigo-600 mb-1">1. 老師餐費分攤</p>
+                        <button 
+                          onClick={() => setShowTeachers(!showTeachers)}
+                          className="w-full text-left font-bold text-indigo-600 mb-1 flex items-center justify-between group"
+                        >
+                          <span>1. 老師餐費分攤 (共8位)</span>
+                          <span className="text-[10px] bg-indigo-50 px-1.5 py-0.5 rounded text-indigo-400 group-hover:text-indigo-600 transition-colors">
+                            {showTeachers ? "收合 ↑" : "點開看老師名單 ↓"}
+                          </span>
+                        </button>
+                        
+                        <AnimatePresence>
+                          {showTeachers && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="grid grid-cols-2 gap-x-4 gap-y-1 mb-3 mt-1 px-2 py-2 bg-indigo-50/30 rounded-xl border border-indigo-50">
+                                {[
+                                  "嚴立模老師", "陳志峰老師", "李美燕老師", "余昭玟老師",
+                                  "簡光明老師", "林秀蓉老師", "柯明傑老師", "劉建志老師"
+                                ].map((t, idx) => (
+                                  <div key={idx} className="flex items-center gap-1.5 text-slate-500">
+                                    <div className="w-1 h-1 rounded-full bg-indigo-300" />
+                                    {t}
+                                  </div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+
                         <p className="flex justify-between items-center">
-                          <span>8位老師餐費 ÷ 全班 21人</span>
+                          <span>老師餐費總計 ÷ 全班 21人</span>
                           <span className="font-mono font-bold">$215 / 人</span>
                         </p>
                       </div>
