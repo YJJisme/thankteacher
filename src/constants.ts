@@ -6,7 +6,7 @@ export const DEFAULT_CONFIG: AppConfig = {
   eventTime: "下午 18:00",
   eventLocation: "三倆三私房菜",
   eventMapLink: "https://goo.gl/maps/placeholder",
-  totalBill: 13517,
+  totalBill: 13577,
   attendingFee: 800,
   absentFee: 220,
 };

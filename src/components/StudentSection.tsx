@@ -346,11 +346,11 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
                           <li>小計：<span className="font-bold">$213</span></li>
                         </ul>
                       </li>
-                      <li><span className="font-medium">個人素食套餐 (1人份)：</span><span className="font-bold text-slate-800">$528</span></li>
+                      <li><span className="font-medium">個人素食套餐 (1人份)：</span><span className="font-bold text-slate-800">$588</span></li>
                     </ul>
                     <div className="mt-3 pt-2 border-t border-slate-200 flex justify-between items-center px-1">
                       <span className="font-bold text-slate-900">餐廳端總計 (未含服務費)</span>
-                      <span className="text-lg font-black text-indigo-600">$13,517</span>
+                      <span className="text-lg font-black text-indigo-600">$13,577</span>
                     </div>
                   </div>
 
@@ -391,17 +391,43 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
                           )}
                         </AnimatePresence>
 
-                        <p className="flex justify-between items-center">
-                          <span>老師餐費總計 ÷ 全班 21人</span>
-                          <span className="font-mono font-bold">$215 / 人</span>
-                        </p>
+                        <div className="space-y-1.5 text-slate-500 mt-2">
+                          <p className="flex justify-between items-center text-[10px]">
+                            <span>餐廳總價 $13,577 ÷ 24人份 = 每份約 $565</span>
+                          </p>
+                          <p className="flex justify-between items-center text-[10px]">
+                            <span>8位老師餐費 ($565/人 × 8) = $4,520</span>
+                          </p>
+                          <p className="flex justify-between items-center">
+                            <span>$4,520 ÷ 全班 21人 (不論是否參加)</span>
+                            <span className="font-mono font-bold text-indigo-600">$215 / 人</span>
+                          </p>
+                        </div>
                       </div>
                       <div className="pb-2 border-b border-slate-100">
-                        <p className="font-bold text-slate-700 mb-1">2. 參加同學實收</p>
-                        <p className="flex justify-between items-center">
-                          <span>個人 $563 + 分攤 $215 = $778</span>
-                          <span className="font-mono">實收 <span className="font-bold text-slate-900">$800</span> (含預備金)</span>
-                        </p>
+                        <p className="font-bold text-slate-700 mb-1">2. 參加同學實收 (桌菜)</p>
+                        <div className="space-y-1 text-slate-500 mt-2">
+                          <p className="flex justify-between items-center">
+                            <span>個人餐費 (依總價 $13,577 均分)</span>
+                            <span>$565</span>
+                          </p>
+                          <p className="flex justify-between items-center">
+                            <span>+ 老師餐費分攤</span>
+                            <span>$215</span>
+                          </p>
+                          <p className="flex justify-between items-center font-bold text-slate-700 border-t border-slate-100 pt-1 mt-1">
+                            <span>小計</span>
+                            <span>$780</span>
+                          </p>
+                          <p className="flex justify-between items-center text-[10px] text-slate-400">
+                            <span>+ 預備金 (支應加點雜支/找零)</span>
+                            <span>$20</span>
+                          </p>
+                          <p className="flex justify-between items-center font-black text-indigo-600 border-t border-indigo-100 pt-1 mt-1">
+                            <span>實收金額</span>
+                            <span className="text-sm font-mono">$800</span>
+                          </p>
+                        </div>
                       </div>
                       <div>
                         <p className="font-bold text-slate-700 mb-1">3. 不參加者實收</p>
