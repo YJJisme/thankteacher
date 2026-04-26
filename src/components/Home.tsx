@@ -103,6 +103,8 @@ export default function Home({ onEnterStudent, onEnterTeacher, onEnterAdmin }: H
         </div>
       </section>
 
+      {/* (Moved Announcement Banner into the Details Card below) */}
+      
       {/* Event Details Card */}
       <section className="max-w-4xl mx-auto px-4 -mt-12 relative z-20">
         <motion.div
@@ -111,6 +113,23 @@ export default function Home({ onEnterStudent, onEnterTeacher, onEnterAdmin }: H
           transition={{ delay: 0.2 }}
           className="bg-white rounded-3xl shadow-2xl shadow-indigo-100/50 p-8 md:p-12 border border-slate-100"
         >
+          {/* Announcement Banner IN-CARD */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-8 bg-amber-50 border border-amber-100 rounded-2xl p-4 flex items-start gap-4"
+          >
+            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 flex-shrink-0">
+              <Clock size={20} />
+            </div>
+            <div>
+              <p className="text-[10px] font-black text-amber-800 uppercase tracking-[0.2em] mb-1">重要公告 NOTICE</p>
+              <p className="text-sm text-amber-800/80 leading-relaxed font-semibold">
+                因有同學臨時不能出席，每人分攤金額可能會有變動。待與餐廳確認桌數後，會重新公布應繳費用，請先留意最新消息。造成不便真的很抱歉！
+              </p>
+            </div>
+          </motion.div>
+
           <div className="grid md:grid-cols-3 gap-8">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 flex-shrink-0">
