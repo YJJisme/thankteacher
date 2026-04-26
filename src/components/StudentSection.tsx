@@ -406,26 +406,24 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
                       <div className="pb-2 border-b border-slate-100">
                         <p className="font-bold text-slate-700 mb-1">2. 參加同學實收 (桌菜)</p>
                         <div className="space-y-1 text-slate-500 mt-2">
-                          <p className="flex justify-between items-center">
-                            <span>個人餐費 (依新總額 $12,989 均分)</span>
+                          <p className="flex justify-between items-center text-xs">
+                            <span>個人餐費 (依總額 $12,989 ÷ 23人)</span>
                             <span>$565</span>
                           </p>
-                          <p className="flex justify-between items-center">
-                            <span>+ 老師餐費分攤</span>
+                          <p className="flex justify-between items-center text-indigo-600 font-medium">
+                            <span>+ 老師餐費分攤 (全班 21 人均攤)</span>
                             <span>$215</span>
                           </p>
-                          <p className="flex justify-between items-center font-bold text-slate-700 border-t border-slate-100 pt-1 mt-1">
-                            <span>小計</span>
-                            <span>$780</span>
-                          </p>
-                          <p className="flex justify-between items-center text-[10px] text-slate-400">
+                          <p className="flex justify-between items-center text-slate-400 text-[10px]">
                             <span>+ 預備金 (支應加點雜支/找零)</span>
                             <span>$20</span>
                           </p>
-                          <p className="flex justify-between items-center font-black text-indigo-600 border-t border-indigo-100 pt-1 mt-1">
-                            <span>實收金額</span>
-                            <span className="text-sm font-mono">$800</span>
-                          </p>
+                        </div>
+                        <div className="mt-3 pt-3 border-t-2 border-dashed border-slate-200 flex justify-between items-center">
+                          <span className="font-black text-slate-900">每位出席同學應繳</span>
+                          <span className="text-2xl font-black text-indigo-600 tracking-tighter">
+                            $800
+                          </span>
                         </div>
                       </div>
                       <div>

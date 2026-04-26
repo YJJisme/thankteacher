@@ -125,7 +125,7 @@ export default function Home({ onEnterStudent, onEnterTeacher, onEnterAdmin }: H
             <div>
               <p className="text-[10px] font-black text-amber-800 uppercase tracking-[0.2em] mb-1">最新公告 UPDATED</p>
               <p className="text-sm text-amber-800/80 leading-relaxed font-semibold">
-                最新情報更新！與餐廳確認桌數與菜單後（取消單份素飯），總額降至 $12,989。經重新精算，每人應繳費用維持原定金額不變。再次感謝大家見諒！
+                最新情報：與餐廳確認桌數與菜單後，總額略有變動（因有一位同學臨時不參加），但經精算後每人應繳費用維持原定金額不變。再次感謝大家見諒！
               </p>
             </div>
           </motion.div>
