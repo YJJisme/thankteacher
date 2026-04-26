@@ -51,7 +51,7 @@ export default function App() {
         { name: "張*瑋", isAttending: true },
         { name: "呂*綾", isAttending: true },
         { name: "王*豪", isAttending: false },
-        { name: "許*恩", isAttending: true },
+        { name: "許*恩", isAttending: false },
       ];
 
       try {
@@ -80,6 +80,14 @@ export default function App() {
           });
         }
         console.log("Seeding complete.");
+        
+        // One-time patch for 許*恩 (Index 20)
+        try {
+          await updateDoc(doc(db, "students", "student_order_20"), { isAttending: false });
+          console.log("Patch applied: 許*恩 status updated to absent.");
+        } catch (patchErr) {
+          console.warn("Patch failed (might not exist yet):", patchErr);
+        }
       } catch (err) {
         console.error("Setup error:", err);
       }

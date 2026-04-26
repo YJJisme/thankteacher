@@ -123,9 +123,9 @@ export default function Home({ onEnterStudent, onEnterTeacher, onEnterAdmin }: H
               <Clock size={20} />
             </div>
             <div>
-              <p className="text-[10px] font-black text-amber-800 uppercase tracking-[0.2em] mb-1">重要公告 NOTICE</p>
+              <p className="text-[10px] font-black text-amber-800 uppercase tracking-[0.2em] mb-1">最新公告 UPDATED</p>
               <p className="text-sm text-amber-800/80 leading-relaxed font-semibold">
-                因有同學臨時不能出席，每人分攤金額可能會有變動。待與餐廳確認桌數後，會重新公布應繳費用，請先留意最新消息。造成不便真的很抱歉！
+                最新情報更新！與餐廳確認桌數與菜單後（取消單份素飯），總額降至 $12,989。經重新精算，每人應繳費用維持原定金額不變。再次感謝大家見諒！
               </p>
             </div>
           </motion.div>

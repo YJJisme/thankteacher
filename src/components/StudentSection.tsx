@@ -338,19 +338,18 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
                   <div>
                     <p className="font-bold text-slate-900 mb-2">🍽️ 餐廳現場消費精算 (三倆三)：</p>
                     <ul className="space-y-2 list-disc list-inside text-xs leading-relaxed">
-                      <li><span className="font-medium">葷食桌菜 (23人份)：</span>$6,388 × 2套 = <span className="font-bold text-slate-800">$12,776</span></li>
-                      <li><span className="font-medium">人數差額加收 (菜色加量)：</span>
+                      <li><span className="font-medium">葷食桌菜 (20人份)：</span>$6,388 × 2套 = <span className="font-bold text-slate-800">$12,776</span></li>
+                      <li><span className="font-medium">加點人數差額 (菜色加量)：</span>
                         <ul className="ml-5 mt-1 list-none space-y-0.5 opacity-80">
-                          <li>• 第一桌 11人：+$71 (1人份)</li>
-                          <li>• 第二桌 12人：+$142 (2人份)</li>
-                          <li>小計：<span className="font-bold">$213</span></li>
+                          <li>• 總出席 23人 (15生 + 8師)：+$213</li>
+                          <li>(差額 3人份量均攤於桌菜中)</li>
                         </ul>
                       </li>
-                      <li><span className="font-medium">個人素食套餐 (1人份)：</span><span className="font-bold text-slate-800">$588</span></li>
+                      <li><span className="font-medium text-slate-400">個人素食套餐：</span><span className="text-slate-400 line-through">已取消</span></li>
                     </ul>
                     <div className="mt-3 pt-2 border-t border-slate-200 flex justify-between items-center px-1">
-                      <span className="font-bold text-slate-900">餐廳端總計 (未含服務費)</span>
-                      <span className="text-lg font-black text-indigo-600">$13,577</span>
+                      <span className="font-bold text-slate-900">最終端總計 (最新情資)</span>
+                      <span className="text-lg font-black text-indigo-600">$12,989</span>
                     </div>
                   </div>
 
@@ -393,7 +392,7 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
 
                         <div className="space-y-1.5 text-slate-500 mt-2">
                           <p className="flex justify-between items-center text-[10px]">
-                            <span>餐廳總價 $13,577 ÷ 24人份 = 每份約 $565</span>
+                            <span>餐廳總價 $12,989 ÷ 23人份 = 每份約 $565</span>
                           </p>
                           <p className="flex justify-between items-center text-[10px]">
                             <span>8位老師餐費 ($565/人 × 8) = $4,520</span>
@@ -408,7 +407,7 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
                         <p className="font-bold text-slate-700 mb-1">2. 參加同學實收 (桌菜)</p>
                         <div className="space-y-1 text-slate-500 mt-2">
                           <p className="flex justify-between items-center">
-                            <span>個人餐費 (依總價 $13,577 均分)</span>
+                            <span>個人餐費 (依新總額 $12,989 均分)</span>
                             <span>$565</span>
                           </p>
                           <p className="flex justify-between items-center">
