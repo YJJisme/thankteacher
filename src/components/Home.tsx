@@ -125,7 +125,7 @@ export default function Home({ onEnterStudent, onEnterTeacher, onEnterAdmin }: H
             <div>
               <p className="text-[10px] font-black text-amber-800 uppercase tracking-[0.2em] mb-1">最新公告 UPDATED</p>
               <p className="text-sm text-amber-800/80 leading-relaxed font-semibold">
-                最新情報：與餐廳確認桌數與菜單後，總額略有變動（因有一位同學臨時不參加），但經精算後每人應繳費用維持原定金額不變。再次感謝大家見諒！
+                最新情報：與餐廳確認桌數與菜單後，總額調整為 $12,918（因兩位同學臨時不參加，總人數減至 22 人）。經精算，每人應繳費用稍有變動，詳情請進入「學生專區」查詢。再次感謝大家見諒！
               </p>
             </div>
           </motion.div>

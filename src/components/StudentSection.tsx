@@ -341,15 +341,15 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
                       <li><span className="font-medium">葷食桌菜 (20人份)：</span>$6,388 × 2套 = <span className="font-bold text-slate-800">$12,776</span></li>
                       <li><span className="font-medium">加點人數差額 (菜色加量)：</span>
                         <ul className="ml-5 mt-1 list-none space-y-0.5 opacity-80">
-                          <li>• 總出席 23人 (15生 + 8師)：+$213</li>
-                          <li>(差額 3人份量均攤於桌菜中)</li>
+                          <li>• 總出席 22人 (14生 + 8師)：+$142</li>
+                          <li>(差額 2人份量均攤於桌菜中)</li>
                         </ul>
                       </li>
                       <li><span className="font-medium text-slate-400">個人素食套餐：</span><span className="text-slate-400 line-through">已取消</span></li>
                     </ul>
                     <div className="mt-3 pt-2 border-t border-slate-200 flex justify-between items-center px-1">
                       <span className="font-bold text-slate-900">最終端總計 (最新情資)</span>
-                      <span className="text-lg font-black text-indigo-600">$12,989</span>
+                      <span className="text-lg font-black text-indigo-600">$12,918</span>
                     </div>
                   </div>
 
@@ -392,46 +392,48 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
 
                         <div className="space-y-1.5 text-slate-500 mt-2">
                           <p className="flex justify-between items-center text-[10px]">
-                            <span>餐廳總價 $12,989 ÷ 23人份 = 每份約 $565</span>
+                            <span>餐廳總價 $12,918 ÷ 22人份 = 每份約 $587</span>
                           </p>
                           <p className="flex justify-between items-center text-[10px]">
-                            <span>8位老師餐費 ($565/人 × 8) = $4,520</span>
+                            <span>8位老師餐費 ($587/人 × 8) = $4,696</span>
                           </p>
                           <p className="flex justify-between items-center">
-                            <span>$4,520 ÷ 全班 21人 (不論是否參加)</span>
-                            <span className="font-mono font-bold text-indigo-600">$215 / 人</span>
+                            <span>$4,696 ÷ 全班 21人 (不論是否參加)</span>
+                            <span className="font-mono font-bold text-indigo-600">$224 / 人</span>
                           </p>
                         </div>
                       </div>
                       <div className="pb-2 border-b border-slate-100">
-                        <p className="font-bold text-slate-700 mb-1">2. 參加同學實收 (桌菜)</p>
+                        <p className="font-bold text-slate-700 mb-1">2. 出席同學應繳 ($820)</p>
                         <div className="space-y-1 text-slate-500 mt-2">
                           <p className="flex justify-between items-center text-xs">
-                            <span>個人餐費 (依總額 $12,989 ÷ 23人)</span>
-                            <span>$565</span>
+                            <span>自己的餐費 (依總額 $12,918 ÷ 22人)</span>
+                            <span>$587</span>
                           </p>
                           <p className="flex justify-between items-center text-indigo-600 font-medium">
-                            <span>+ 老師餐費分攤 (全班 21 人均攤)</span>
-                            <span>$215</span>
+                            <span>+ 老師餐費分攤 (全班 21 位均攤)</span>
+                            <span>$224</span>
                           </p>
                           <p className="flex justify-between items-center text-slate-400 text-[10px]">
-                            <span>+ 預備金 (支應加點雜支/找零)</span>
-                            <span>$20</span>
+                            <span>+ 收整數備用金 (雜支與找零預備)</span>
+                            <span>$9</span>
                           </p>
                         </div>
                         <div className="mt-3 pt-3 border-t-2 border-dashed border-slate-200 flex justify-between items-center">
-                          <span className="font-black text-slate-900">每位出席同學應繳</span>
+                          <span className="font-black text-slate-900 italic">出席總計</span>
                           <span className="text-2xl font-black text-indigo-600 tracking-tighter">
-                            $800
+                            $820
                           </span>
                         </div>
                       </div>
                       <div>
-                        <p className="font-bold text-slate-700 mb-1">3. 不參加者實收</p>
-                        <p className="flex justify-between items-center">
-                          <span>分攤 $215 + 收整數</span>
-                          <span className="font-mono">實收 <span className="font-bold text-slate-900">$220</span> (含預備金)</span>
-                        </p>
+                        <p className="font-bold text-slate-700 mb-1">3. 缺席同學應繳 ($230)</p>
+                        <div className="space-y-1 text-slate-500 mt-2">
+                          <p className="flex justify-between items-center text-xs">
+                            <span>老師餐費分攤 ($224) + 收整數備用金 ($6)</span>
+                            <span className="font-mono font-bold text-slate-900">$230</span>
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -439,15 +441,15 @@ export default function StudentSection({ students, onUpdateStudent, onBack }: St
                   <div className="pt-2">
                     <p className="font-bold text-slate-900 mb-1">💡 繳費原則說明：</p>
                     <p className="text-xs leading-relaxed opacity-80 italic">
-                      目前收取的整數費用包含預備金，將採「多退少補」原則，或挪作「送老師的小禮物費」使用。我們秉持透明公平，每一分錢都會花在謝師宴的初衷上。
+                      目前收取的金額包含「收整數備用金」，將採「多退少補」原則，或挪作「送老師的小禮物費」使用。我們秉持透明公平，每一分錢都會花在謝師宴的初衷上。
                     </p>
                   </div>
 
                   <div className="pt-2 border-t border-slate-200">
-                    <p className="font-bold text-slate-900 mb-1">分攤公式預覽：</p>
+                    <p className="font-bold text-slate-900 mb-1">分攤公式總結：</p>
                     <ul className="list-disc list-inside space-y-1 text-xs">
-                      <li>出席：${DEFAULT_CONFIG.attendingFee} (含餐費＋雜支分攤)</li>
-                      <li>缺席：${DEFAULT_CONFIG.absentFee} (僅基本雜支分攤)</li>
+                      <li>出席：$820 (含老師、自已餐費＋收整數備用金)</li>
+                      <li>缺席：$230 (老師餐費＋收整數備用金)</li>
                     </ul>
                   </div>
                 </div>

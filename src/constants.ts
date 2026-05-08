@@ -6,9 +6,9 @@ export const DEFAULT_CONFIG: AppConfig = {
   eventTime: "下午 18:00",
   eventLocation: "三倆三私房菜",
   eventMapLink: "https://goo.gl/maps/placeholder",
-  totalBill: 13577,
-  attendingFee: 800,
-  absentFee: 220,
+  totalBill: 12918,
+  attendingFee: 820,
+  absentFee: 230,
 };
 
 export const ADMIN_PASSWORD = "yjj43637";
